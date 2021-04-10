@@ -1,0 +1,3 @@
+#!/bin/bash
+# convert python script into shell script.
+python3.8 mysql_script.py "$@"

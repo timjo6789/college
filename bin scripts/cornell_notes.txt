@@ -1,0 +1,10 @@
+Title: Cornell Notes
+Subtitle: Simplier way
+
+Reduce
+Description: Reduce Section
+  details
+
+Record
+Description: Record Section
+  details

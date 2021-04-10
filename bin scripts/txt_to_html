@@ -1,0 +1,3 @@
+#!/bin/bash
+# runs python script as shell script
+python3.8 convert_txt_to_html.py "$1" "$2"

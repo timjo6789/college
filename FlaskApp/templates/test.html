@@ -1,0 +1,42 @@
+<table>
+  <tr>
+  {% for each in keys %}
+    <td>{{ each }}</td>
+  {% endfor %}
+  </tr>
+  {% for each in query_1 %}
+    <tr>
+    {% for item in each %}
+      <td>{{ item }}</td>
+    {% endfor %}
+    </tr>
+  {% endfor %}
+</table>
+<form action='#' method='post'>
+  <label for="actions">Choose a car:</label>
+  <select name="actions" id="actions">
+    <option value="See all">See all</option>
+    <option value="saab">Saab</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+  </select>
+  <button id='one'>press</button>
+</form>
+<script src="../static/js/jQuery"></script>
+<script>
+    $(function() {
+        $('#one').click(function() {
+            $.ajax({
+                url: '/test',
+                data: $('form').serialize(),
+                type: 'POST',
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+</script> 

@@ -1,0 +1,54 @@
+div.assignment_table {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+div.assignment_table span.assignment_item {
+  background-color: rgb(212, 212, 212);
+  border-top: 1px solid rgb(170, 170, 170);
+  border-bottom: 1px solid rgb(170, 170, 170);
+  text-align: center;
+  padding: 0.3rem;
+}
+
+div.assignment_table span.assignment_item_even {
+  background-color: rgb(233 233 233);
+}
+
+div.assignment_table span.assignment_item.header {
+  font-size: 1.5rem;
+  border: 1px solid rgb(170, 170, 170);
+}
+
+div.task_table {
+  display: grid;
+  grid-column: 1 / span 3;
+  grid-template-columns: repeat(6, 1fr);
+  width: 98%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+div.task_table span.task_table_item {
+  background-color: rgb(170, 170, 170);
+  border-top: 1px solid rgb(150, 150, 150);
+  border-bottom: 1px solid rgb(150, 150, 150);
+}
+
+div.assignment_table span.task_table_item.header {
+  font-size: 1.2rem;
+  border: 1px solid rgb(150, 150, 150);
+}
+
+div.assignment_table span.task_table_even {
+  background-color: rgb(147, 147, 147);
+}
+
+div.hidden {
+  display:none;
+}
+
+button {
+  padding: 0.7rem 2rem;
+  margin: 0.5rem auto;
+}

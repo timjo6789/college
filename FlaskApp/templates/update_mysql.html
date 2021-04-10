@@ -1,0 +1,78 @@
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  input {
+    display: block;
+  }
+  #duration {
+    display: inline;
+  }
+  #add {
+    display: inline;
+  }
+  #replace {
+    display: inline;
+  }
+  #label {
+    display:block;
+  }
+</style>
+<h1>mark done</h1>
+<form action='#' method="POST">
+  <label for="assignment_id">Assignment id</label>
+  <input id='assignment_id' type="text">
+  <label for="task">Task number</label>
+  <input id='task' type="text">
+  <div>
+    <label for="duration">duration</label>
+    <input id='duration' type="text">
+    <label for="add">add</label>
+    <input type="radio" name="duration" id="add">
+    <label for="replace">replace</label>
+    <input type="radio" name="duration" id="replace">
+  </div>
+  <label for="date_completed">Date completed (YYYY-MM-DD format)</label>
+  <input id='date_completed' type="text">
+  <button type="submit">Go</button>
+</form>
+<h1>mark done without duration</h1>
+<form action='#' method="POST">
+  <label for="assignment_id_without_duration">Assignment id</label>
+  <input id='assignment_id_without_duration' type="text">
+  <label for="task_without_duration">Task number</label>
+  <input id='task_without_duration' type="text">
+  <label for="date_completed_without_duration">Date completed (YYYY-MM-DD format)</label>
+  <input id='date_completed_without_duration' type="text">
+  <button type="submit">Go</button>
+</form>
+
+<h1>mark undone</h1>
+<form action='#' method="POST">
+  <label for="assignment_id_undone">Assignment id</label>
+  <input id='assignment_id_undone' type="text">
+  <label for="task_undone">Task number</label>
+  <input id='task_undone' type="text">
+  <button type="submit">Go</button>
+</form>
+
+<h1>add time</h1>
+<form action='#' method="POST">
+  <label for="assignment_id_add_time">Assignment id</label>
+  <input id='assignment_id_add_time' type="text">
+  <label for="task_add_time">Task number</label>
+  <input id='task_add_time' type="text">
+  <label for="duration_add_time">duration</label>
+  <input id='duration_add_time' type="text">
+  <button type="submit">Go</button>
+</form>
+
+
+<h1>get task list</h1>
+<form action='#' method="POST">
+  <label for="assignment_id_task_list">Assignment id</label>
+  <input id='assignment_id_task_list' type="text">
+  <label for="task_task_list">Task number</label>
+  <input id='task_task_list' type="text">
+  <button type="submit">Go</button>
+</form>

@@ -1,0 +1,5 @@
+#!/bin/bash
+cp cornell_notes.txt "$1".txt
+touch "$1".html
+mkdir figures
+mkdir resources

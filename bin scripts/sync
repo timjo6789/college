@@ -1,0 +1,6 @@
+#!/bin/bash
+while :
+do
+   sleep 0.5
+   txt_to_html "$1" "$1"
+done

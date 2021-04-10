@@ -1,0 +1,12 @@
+#class, week
+#  title, type, deadline (both type and deadline are optional)
+#    task title (it auto increment task number for you)
+
+#CLASS_NAME, WEEK
+#  TITLE, TYPE, DEADLINE
+#    TASK 1
+#    TASK 2
+#  TITLE, TYPE
+#    TASK 1
+#  TITLE
+#    TASK 1

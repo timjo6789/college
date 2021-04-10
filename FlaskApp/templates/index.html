@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Python Flask App</title>
+    <link rel="stylesheet" href="static/css/index.css">
+    <script src="static/js/jQuery"></script>
+    <script src='static/js/index.js'></script>
+</head>
+ 
+<body>
+    <button onclick="toggleAll()">Toggle all</button>
+    <button onclick="collapseAll()">Collapse all</button>
+    <button onclick="expandAll()">Expand all</button>
+    <button onclick="print_commands()">Console print save</button>
+    <button onclick="total_time()">Console print total time</button>
+    {% for class_key, class_value in output.items() %}
+    <h2>{{ class_key }}</h2>
+        <div class='assignment_table'>
+            <span class='assignment_item header'>Assignment</span>
+            <span class='assignment_item header'>Assignment ID</span>
+            <span class='assignment_item header'>Due Date</span>
+        </div>
+        {% set even2 = namespace(boolean=2) %}
+        {% for assignment_id_key, assignment_id_value in class_value.items() %}
+            {% if len(assignment_id_value['task']) > 0 %}
+                <div class="assignment_table">
+                    {% if even2.boolean %}
+                        {% set even2.boolean = 0 %}
+                        <span class='assignment_item assignment_item_even'>{{ assignment_id_value['title'] }}</span>
+                        <span class='assignment_item assignment_item_even'>{{ assignment_id_key }}</span>
+                        <span class='assignment_item assignment_item_even'>{{ assignment_id_value['due'] }}</span>
+                    {% else %}
+                        {% set even2.boolean = 1 %}
+                        <span class='assignment_item'>{{ assignment_id_value['title'] }}</span>
+                        <span class='assignment_item'>{{ assignment_id_key }}</span>
+                        <span class='assignment_item'>{{ assignment_id_value['due'] }}</span>
+                    {% endif %}
+                    {% if len(assignment_id_value['task']) and len(assignment_id_value['task_number']) and len(assignment_id_value['duration']) %}
+                        <div class='task_table'>
+                            <span class='task_table_item header'>Task</span>
+                            <span class='task_table_item header'>Task number</span>
+                            <span class='task_table_item header'>Time</span>
+                            <span class='task_table_item header'>Stopwatch action</span>
+                            <span class='task_table_item header'>Restart</span>
+                            <span class='task_table_item header'>Complete</span>
+                        </div>
+                        <div class='task_table'>
+                            {% set even = namespace(boolean=0) %}
+                            {% for task, task_number, duration in zip(assignment_id_value['task'], assignment_id_value['task_number'], assignment_id_value['duration']) %}
+                                {% if even.boolean %}
+                                    {% set even.boolean = 0 %}
+                                    <span class="task_table_item task_table_even" id="task-{{assignment_id_key}}-{{task_number}}">{{ task }}</span>
+                                    <span class="task_table_item task_table_even" id="task-number-{{assignment_id_key}}-{{task_number}}">{{ task_number }}</span>
+                                    <span class="task_table_item task_table_even time" id="stopwatch-{{assignment_id_key}}-{{task_number}}">{{ pretty_time(duration) }}</span>
+                                    <span class="task_table_item task_table_even"><button class='toggle' id="toggle-{{assignment_id_key}}-{{task_number}}">start</button></span>
+                                    <span class="task_table_item task_table_even"><button class='restart' id="restart-{{assignment_id_key}}-{{task_number}}">Restart</button></span>
+                                    <span class="task_table_item task_table_even"><button class='complete' id='complete-{{assignment_id_key}}-{{task_number}}'>complete</button></span>
+                                {% else %}
+                                    {% set even.boolean = 1 %}
+                                    <span class="task_table_item" id="task-{{assignment_id_key}}-{{task_number}}">{{ task }}</span>
+                                    <span class="task_table_item" id="task-number-{{assignment_id_key}}-{{task_number}}">{{ task_number }}</span>
+                                    <span class="task_table_item time" id="stopwatch-{{assignment_id_key}}-{{task_number}}">{{ pretty_time(duration) }}</span>
+                                    <span class="task_table_item"><button class='toggle' id="toggle-{{assignment_id_key}}-{{task_number}}">start</button></span>
+                                    <span class="task_table_item"><button class='restart' id="restart-{{assignment_id_key}}-{{task_number}}">Restart</button></span>
+                                    <span class="task_table_item"><button class='complete' id='complete-{{assignment_id_key}}-{{task_number}}'>complete</button></span>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+
+</body>
+ 
+</html>
